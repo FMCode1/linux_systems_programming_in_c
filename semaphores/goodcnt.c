@@ -1,3 +1,16 @@
+/* -----------------------------------------------------------
+ * goodcnt.c
+ *
+ * Demonstrates a **thread-safe counter** using two threads
+ * and a semaphore for synchronization.
+ *
+ * Skills demonstrated:
+ *   - pthread creation and joining
+ *   - Using POSIX semaphores to prevent race conditions
+ *   - Correct shared memory access in multithreading
+ * -----------------------------------------------------------
+ */
+
 #include <errno.h>
 #include <pthread.h>
 #include <semaphore.h>
@@ -6,64 +19,57 @@
 
 #define NITER 1000000
 
-int CNT = 0;
+int CNT = 0;      // Global counter
+sem_t mutex;      // Semaphore for synchronizing access
 
-sem_t mutex; // global declaration
-
+// Thread function: increments CNT NITER times safely
 void *counterFunct(void *a)
 {
-  int i, tmp;
-  for (i = 0; i < NITER; i++)
-  {
-    sem_wait(&mutex);  // Wait (lock) the semaphore before accessing CNT
-    tmp = CNT;     /* copy the global CNT locally */
-    tmp = tmp + 1; /* increment the local copy */
-    CNT = tmp;     /* store the local value into the global CNT */
-    sem_post(&mutex);  // Post (unlock) the semaphore after accessing CNT
-  }
+    int i, tmp;
+    for (i = 0; i < NITER; i++)
+    {
+        sem_wait(&mutex); // Lock semaphore
+        tmp = CNT;
+        tmp = tmp + 1;
+        CNT = tmp;
+        sem_post(&mutex); // Unlock semaphore
+    }
+    return NULL;
 }
 
 int main(int argc, char *argv[])
 {
-  pthread_t tId1, tId2;
+    pthread_t tId1, tId2;
 
-  // Initialize the semaphore with value 1 (binary semaphore)
-  if (sem_init(&mutex, 0, 1) != 0)
-  {
-    perror("Semaphore init failed");
-    exit(1);
-  }
+    // Initialize semaphore as binary
+    if (sem_init(&mutex, 0, 1) != 0)
+    {
+        perror("Semaphore init failed");
+        exit(1);
+    }
 
-  if (pthread_create(&tId1, NULL, counterFunct, NULL))
-  {
-    perror("\n ERROR creating thread 1");
-    exit(1);
-  }
+    // Create threads
+    if (pthread_create(&tId1, NULL, counterFunct, NULL) ||
+        pthread_create(&tId2, NULL, counterFunct, NULL))
+    {
+        perror("ERROR creating threads");
+        exit(1);
+    }
 
-  if (pthread_create(&tId2, NULL, counterFunct, NULL))
-  {
-    perror("\n ERROR creating thread 2");
-    exit(1);
-  }
+    // Wait for threads
+    if (pthread_join(tId1, NULL) || pthread_join(tId2, NULL))
+    {
+        perror("ERROR joining threads");
+        exit(1);
+    }
 
-  if (pthread_join(tId1, NULL)) /* wait for the thread 1 to finish */
-  {
-    perror("\n ERROR joining thread");
-    exit(1);
-  }
+    // Check result
+    if (CNT < 2 * NITER)
+        printf("BOOM! CNT is [%d], should be %d\n", CNT, 2 * NITER);
+    else
+        printf("OK! CNT is [%d]\n", CNT);
 
-  if (pthread_join(tId2, NULL)) /* wait for the thread 2 to finish */
-  {
-    perror("\n ERROR joining thread");
-    exit(1);
-  }
-
-  if (CNT < 2 * NITER)
-    printf("\n BOOM! CNT is [%d], should be %d\n", CNT, 2 * NITER);
-  else
-    printf("\n OK! CNT is [%d]\n", CNT);
-
-  sem_destroy(&mutex);
-
-  pthread_exit(NULL);
+    // Clean up semaphore
+    sem_destroy(&mutex);
+    pthread_exit(NULL);
 }

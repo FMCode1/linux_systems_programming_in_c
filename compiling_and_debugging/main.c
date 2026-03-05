@@ -6,30 +6,42 @@
 
 int main(int argc, char *argv[])
 {
-  int *array;
-  int max = -9999;
-  int size = 0;
+    int *array;       // Pointer to dynamically allocated array
+    int max = -9999;  // Variable to store the maximum value
+    int size = 0;     // Size of the array
 
-  printf("How big is the array? ");
-  scanf("%i", &size);
+    // Prompt the user for the array size
+    printf("How big is the array? ");
+    scanf("%i", &size);
 
-  // where do we actually allocate an array of size "size"?
-  //  array = (int *) malloc(size * sizeof(int));   // fix: changed from calloc to malloc
-   array = (int *) calloc(size, sizeof(int));   // fix: changed from malloc to calloc
+    // Allocate memory for the array using calloc (initialized to 0)
+    array = (int *) calloc(size, sizeof(int));
+    if (array == NULL)
+    {
+        printf("Memory allocation failed\n");
+        exit(1);
+    }
 
-  if (initialize(array, size) != 0)
-  {
-    printf("initialization error\n");
-    exit(1);
-  }
+    // Initialize the array with random values
+    if (initialize(array, size) != 0)
+    {
+        printf("Initialization error\n");
+        free(array);
+        exit(1);
+    }
 
-  if (findMax(array, size, &max) != 0)
-  {
-    printf("someFunction error\n");
-    exit(1);
-  }
-  printf("The max value in array is: %d\n", max);
+    // Find the maximum value in the array
+    if (findMax(array, size, &max) != 0)
+    {
+        printf("Error finding maximum value\n");
+        free(array);
+        exit(1);
+    }
 
-  free(array);
-  exit(0);
+    // Print the maximum value
+    printf("The max value in the array is: %d\n", max);
+
+    // Free allocated memory and exit
+    free(array);
+    exit(0);
 }

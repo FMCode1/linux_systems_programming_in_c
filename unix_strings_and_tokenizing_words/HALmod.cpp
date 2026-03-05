@@ -1,130 +1,123 @@
 #include "HALmod.h"
 
-int getCommand(string tokens[])
-{
-  string commandLine;
-  bool commandEntered;
-  int tokenCount;
+// Reads a command line from the user and tokenizes it
+int getCommand(string tokens[]) 
+{ 
+    string commandLine; 
+    bool commandEntered; 
+    int tokenCount; 
 
-  do
-  {
-    cout << "HALshell> ";
-    while (1)
-    {
-      getline(cin, commandLine);
-      commandEntered = checkForCommand();
-      if (commandEntered)
-      {
-        break;
-      }
-    }
-  } while (commandLine.length() == 0);
+    do 
+    { 
+        cout << "HALshell> "; 
 
-  tokenCount = tokenizeCommandLine(tokens, commandLine);
+        // Wait until a valid command is entered
+        while (1) 
+        { 
+            getline(cin, commandLine); // Read a full line
+            commandEntered = checkForCommand(); // Checks for cullProcess
+            if (commandEntered) 
+                break;
+        } 
+    } while (commandLine.length() == 0); // Skip empty lines
 
-  return tokenCount;
+    // Break the command line into tokens
+    tokenCount = tokenizeCommandLine(tokens, commandLine); 
+    return tokenCount; 
 }
 
-int tokenizeCommandLine(string tokens[], string commandLine)
-{
-  char *token[MAX_COMMAND_LINE_ARGUMENTS];
-  char *workCommandLine = new char[commandLine.length() + 1];
-  int i;
-  int tokenCount;
+// Splits the command line into separate tokens (words) based on whitespace
+int tokenizeCommandLine(string tokens[], string commandLine) 
+{ 
+    char *token[MAX_COMMAND_LINE_ARGUMENTS]; 
+    char *workCommandLine = new char[commandLine.length() + 1]; 
+    int tokenCount; 
 
-  for (i = 0; i < MAX_COMMAND_LINE_ARGUMENTS; i++)
-  {
-    tokens[i] = "";
-  }
-  strcpy(workCommandLine, commandLine.c_str());
-  i = 0;
-  if ((token[i] = strtok(workCommandLine, " ")) != NULL)
-  {
-    i++;
-    while ((token[i] = strtok(NULL, " ")) != NULL)
-    {
-      i++;
-    }
-  }
-  tokenCount = i;
+    // Initialize tokens array
+    for (int i = 0; i < MAX_COMMAND_LINE_ARGUMENTS; i++) 
+        tokens[i] = ""; 
 
-  for (i = 0; i < tokenCount; i++)
-  {
-    tokens[i] = token[i];
-  }
+    strcpy(workCommandLine, commandLine.c_str()); // Copy string to C-style array
 
-  delete[] workCommandLine;
+    int i = 0;
+    if ((token[i] = strtok(workCommandLine, " ")) != NULL) // first token
+    { 
+        i++; 
+        while ((token[i] = strtok(NULL, " ")) != NULL) // remaining tokens
+            i++; 
+    } 
+    tokenCount = i; 
 
-  return tokenCount;
+    // Copy tokens into C++ strings array
+    for (i = 0; i < tokenCount; i++) 
+        tokens[i] = token[i]; 
+
+    delete[] workCommandLine; 
+    return tokenCount; 
 }
 
-// Do not touch the below function
-bool checkForCommand()
-{
-  if (cullProcess)
-  {
-    cullProcess = 0;
-    cin.clear();
-    cout << "\b\b  \b\b";
-    return false;
-  }
-
-  return true;
+// Checks if the process input should be ignored (signal-based)
+bool checkForCommand() 
+{ 
+    if (cullProcess) 
+    { 
+        cullProcess = 0;
+        cin.clear(); 
+        cout << "\b\b  \b\b"; // erase previous input prompt
+        return false; 
+    } 
+    return true; 
 }
 
-// This is a very paired down version of Dr. Hilderman's function
-int processCommand(string tokens[], int tokenCount)
-{
-  if (tokens[0] == "shutdown" || tokens[0] == "restart")
-  { 
-    if (tokenCount > 1)
-    {
-      cout << "HALshell: " << tokens[0] << " does not require any arguments"
-           << endl;
-      return 1;
-    }
-    cout << endl;
-    cout << "HALshell: terminating ..." << endl;
-
-    return 0;
-  }
-    // Added a check for "lo", prints a message and exits
-    else if (tokens[0] == "lo") {
-    cout << endl;
-    cout << "HALshell: terminating due to 'lo' command ..." << endl;
-    return 0;
-  }
-  else {
-    return 1;
-  }
+// Handles simple shell commands (shutdown, restart, or "lo")
+int processCommand(string tokens[], int tokenCount) 
+{ 
+    if (tokens[0] == "shutdown" || tokens[0] == "restart") 
+    {  
+        if (tokenCount > 1) 
+        { 
+            cout << "HALshell: " << tokens[0] 
+                 << " does not require any arguments" << endl; 
+            return 1; 
+        } 
+        cout << "\nHALshell: terminating ..." << endl; 
+        return 0; 
+    } 
+    else if (tokens[0] == "lo") 
+    { 
+        cout << "\nHALshell: terminating due to 'lo' command ..." << endl; 
+        return 0; 
+    } 
+    else 
+    { 
+        return 1; // Continue running shell
+    } 
 }
 
+// Converts C++ strings into C-style string array (char**)
+char ** convertToC(string tokens[], int tokenCount) 
+{ 
+    char ** cTokens = new char*[tokenCount]; // Allocate array of char pointers
 
-// conVertToC function
-
-char ** convertToC(string tokens[], int tokenCount) {
-    char ** cTokens = new char*[tokenCount]; // Allocate memory for the array of pointers
-
-    for (int i = 0; i < tokenCount; i++) {
-        cTokens[i] = new char[tokens[i].length() + 1]; // Allocate memory for each string
-        strcpy(cTokens[i], tokens[i].c_str()); // Copy the string content into the allocated space
-    }
-
-    return cTokens;
+    for (int i = 0; i < tokenCount; i++) 
+    { 
+        cTokens[i] = new char[tokens[i].length() + 1]; // allocate each string
+        strcpy(cTokens[i], tokens[i].c_str());          // copy content
+    } 
+    return cTokens; 
 }
 
-// cleanUpCArray function
-void cleanUpCArray(char ** cTokens, int tokenCount) {
-    for (int i = 0; i < tokenCount; i++) {
-        delete[] cTokens[i]; // Free each individual string
-    }
-    delete[] cTokens; // Free the array of pointers
+// Frees memory allocated for C-style array
+void cleanUpCArray(char ** cTokens, int tokenCount) 
+{ 
+    for (int i = 0; i < tokenCount; i++) 
+        delete[] cTokens[i]; 
+    delete[] cTokens; 
 }
 
-//printReverse function
-void printReverse(char ** cTokens, int tokenCount) {
-    for (int i = tokenCount - 1; i >= 0; i--) {
-        cout << cTokens[i] << endl; // Print each string in reverse order
-    }
-}
-
+// Prints tokens in reverse order
+void printReverse(char ** cTokens, int tokenCount) 
+{ 
+    for (int i = tokenCount - 1; i >= 0; i--) 
+        cout << cTokens[i] << endl; 
+} 

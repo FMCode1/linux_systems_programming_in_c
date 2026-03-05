@@ -1,20 +1,14 @@
-//Please write your code for the lab exercise in this file
-/*
-1.  Using the command: man 7 signal
-
-    Terminate (Exit): SIGTERM (Signal 15) = Terminate process
-
-    Core Dump: SIGSEGV (Signal 11) = Core
-
-    Stop: SIGTSTP (Signal 18) = Ctrl + Z
-
-    Ignore: SIGCHLD (Signal 20) = Child is ignored by parent
-
-2.  The 2 commands we cannot change the default action for are:
-
-    SIGKILL (Signal 9) and SIGSTOP (Signal 19), both cannot be caught, blocked, or ignored
-
-*/
+/* signals_ex.cpp
+ * Demonstrates basic signal handling in a parent-child process setup.
+ * 
+ * - The child handles SIGWINCH and exits when it receives it.
+ * - The parent handles SIGCHLD when the child terminates.
+ * - Shows use of fork(), sigaction(), and kill() to manage signals.
+   Signals Covered:
+   - SIGWINCH (Child handles)
+   - SIGCHLD  (Parent handles)
+   - SIGTERM, SIGSEGV, SIGTSTP, SIGKILL, SIGSTOP (theoretical references)
+ */
 
 #include <stdio.h>
 #include <signal.h>
@@ -24,23 +18,21 @@
 
 pid_t pid;  // child process ID
 
-// Handler for SIGWINCH (received by the child)
+// Handler for SIGWINCH (child)
 void handle_SIGWINCH(int sigNo) {
-    printf("Signal %d received.\n", sigNo);
-    printf("Child received signal\n");
+    printf("Child received signal %d\n", sigNo);
     exit(0);  // Child exits after handling SIGWINCH
 }
 
-// Handler for SIGCHLD (received by the parent)
+// Handler for SIGCHLD (parent)
 void handle_SIGCHLD(int sigNo) {
-    printf("Signal %d received.\n", sigNo);
-    printf("Parent received signal\n");
-    exit(0);  // Parent exits after receiving SIGCHLD
+    printf("Parent received SIGCHLD %d\n", sigNo);
+    exit(0);  // Parent exits after child terminates
 }
 
 int main() {
     struct sigaction sa_child, sa_parent;
-    
+
     // SIGWINCH handler for the child
     sa_child.sa_handler = handle_SIGWINCH;
     sigemptyset(&sa_child.sa_mask);
@@ -56,33 +48,31 @@ int main() {
     pid = fork();
     
     if (pid < 0) {
-        // Error in forking
         perror("fork");
         exit(1);
     }
 
     if (pid == 0) {
         // Child Process
-        int count = 0;
-        while (1) {  // Print "Child waiting!!" 7 times
+        for (int count = 0; count < 7; count++) {
             printf("Child waiting!!\n");
-            nanosleep((const struct timespec[]){{0, 500000L}}, NULL);  // delay
-            count++;
+            struct timespec t = {0, 500000000L}; // 0.5 seconds
+            nanosleep(&t, NULL);
         }
+        // Child now waits for signal (SIGWINCH)
+        while (1) pause();  // wait indefinitely for signals
     } else {
         // Parent Process
         while (1) {
             printf("Parent waiting!!\n");
-            nanosleep((const struct timespec[]){{0, 500000L}}, NULL);  // delay
-            
-            // Send SIGWINCH to the child
-            printf("Parent is sending a signal\n");
-            // kill(pid, SIGWINCH);
+            struct timespec t = {0, 500000000L}; // 0.5 seconds
+            nanosleep(&t, NULL);
 
-            // ps -fu
-            // kill -9 pid, withouy modifying code
+            printf("Parent is sending SIGWINCH to child\n");
+            kill(pid, SIGWINCH);  // send signal
 
-            // After sending the signal, the parent will handle SIGCHLD when the child exits
+            // Parent will handle SIGCHLD when child exits
+            pause();
         }
     }
 

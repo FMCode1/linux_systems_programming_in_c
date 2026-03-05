@@ -1,135 +1,112 @@
 #include "functions.h"
+
 /* FUNCTION: initialize
- * This function should initialize the array
- * to random values 0 (tails) and 1 (heads)
+ * Fills an integer array with random values 0 (tails) and 1 (heads)
  *
- * The arguments are:
- *     array: pointer to an array of integer values
- *     length: size of array
+ * Arguments:
+ *     array  - pointer to an integer array
+ *     length - size of the array
  *
- * It returns:
- *     0: on success
- *     non-zero: on an error
+ * Returns:
+ *     0 on success, non-zero on error
  */
 int initialize(int *array, int length)
 {
-  srand(getpid());
-  int i;
+    srand(getpid()); // seed random number generator with process id for variability
+    int i;
 
-  for (i = 0; i < length; i++)
-  {
-    array[i] = rand() % 2;
-  }
+    for (i = 0; i < length; i++)
+    {
+        array[i] = rand() % 2; // generate 0 or 1
+    }
 
-  return 0;
+    return 0;
 }
+
 /* FUNCTION: countHeads
- * This function should find the number of 1s (heads) in the array and
- * return it through the argument numHeads.
+ * Threaded function to count the number of heads (1s) in a section of the array.
  *
- * The arguments are:
- *     array: pointer to an array of integer values
- *     length: size of array
- *     numHeads: set to the number of 1s (heads) in the array
+ * Arguments:
+ *     arg - pointer to a struct ArrayPackage containing array, start index, end index
  *
- * It returns:
- *     0: on success
- *     non-zero: on an error
+ * Returns:
+ *     NULL (result is stored in global NUM_HEADS)
  */
-
- // divide to have a different start point for each thread, stop point and each array gets its own and add it on to the total, instead of having to go through the for loop
- // change the number of arguments to match the proper header with a void pointer
-
 void *countHeads(void *arg)
 {
-  struct ArrayPackage *param = arg;
-  int *array = param->array;
-  int start = param->start;
-  int end = param->end;
+    struct ArrayPackage *param = arg;
+    int *array = param->array;
+    int start = param->start;
+    int end = param->end;
 
-  int num_head = 0;
-  for (int i = start; i < end; i++)
-  {
-      num_head += array[i];
-  }
+    int num_head = 0;
+    // Count the number of 1s (heads) in this segment of the array
+    for (int i = start; i < end; i++)
+    {
+        num_head += array[i];
+    }
 
-  pthread_mutex_lock(&headLock);
-  NUM_HEADS += num_head;
-  pthread_mutex_unlock(&headLock);
+    // Safely update global NUM_HEADS using mutex lock
+    pthread_mutex_lock(&headLock);
+    NUM_HEADS += num_head;
+    pthread_mutex_unlock(&headLock);
 
-  free(arg);
+    free(arg); // free the memory allocated for this thread's arguments
 
-  return NULL;
+    return NULL;
 }
-
-
-/*int countHeads(int *array, int length, int *numHeads)
-{
-  int i;
-  *numHeads = 0;
-  for (i = 0; i < length; i++)
-  {
-      *numHeads += arr/ Question 3 a
-void *countHeads(void *arg)
-{
-  void **args = (void **)arg;
-  int *array = (int *)args[0];
-  int start = *(int *)args[1];
-  int end = *(int *)args[2];
-
-  int *start_value = (int *)malloc(sizeof(int));
-  *start_value = array[start];
-
-  pthread_mutex_lock(&headLock);
-  NUM_HEADS += *start_value;
-  pthread_mutex_unlock(&headLock);
-
-  free(args[1]);
-  free(args[2]);
-  free(args);
-
-  return (void *)start_value;
-}
-ay[i];
-  }
-
-  // update NUM_HEADS
-  pthread_mutex_lock(&headLock);
-  NUM_HEADS += *numHeads;
-  pthread_mutex_unlock(&headLock);
-
-  // ensure to clean up memory for the arguments in main
-
-  return 0;
-}
-*/
 
 /* FUNCTION: printArray
- * This function should print all the elements of the array
- * and separately counts the number of heads to verify threaded results.
+ * Prints the contents of an array and checks the number of heads
  *
- * The arguments are:
- *     array: pointer to an array of integer values
- *     length: size of array
+ * Arguments:
+ *     array  - pointer to an integer array
+ *     length - size of the array
  *
- * It returns:
- *     0: on success
- *     non-zero: on an error
+ * Returns:
+ *     0 on success, non-zero on error
  */
 int printArray(int *array, int length)
 {
-  int i;
-  int checkHeads = 0;
-  for (i = 0; i < length; i++)
-  {
-    printf("%d ", array[i]);
-    // add a newline character for readability
-    if ((i + 1) % 15 == 0)
+    int i;
+    int checkHeads = 0;
+
+    for (i = 0; i < length; i++)
     {
-      printf("\n");
+        printf("%d ", array[i]);
+        // Add a newline after every 15 elements for readability
+        if ((i + 1) % 15 == 0)
+        {
+            printf("\n");
+        }
+        checkHeads += array[i]; // count heads in array
     }
-    checkHeads += array[i];
-  }
-  printf("\nChecking result: %i\n", checkHeads);
-  return 0;
+
+    printf("\nChecking result: %i\n", checkHeads);
+    return 0;
+}
+
+// Thread function to count heads in a portion of the array
+void *threadFunction(void *arg)
+{
+    struct ArrayPackage *param = (struct ArrayPackage *)arg;
+    int *array = param->array;
+    int start = param->start;
+    int end = param->end;
+
+    int count = 0;
+    for (int i = start; i < end; i++)
+        count += array[i];
+
+    // Update global NUM_HEADS safely
+    pthread_mutex_lock(&headLock);
+    NUM_HEADS += count;
+    pthread_mutex_unlock(&headLock);
+
+    // Return the local count for main to print
+    int *result = (int *)malloc(sizeof(int));
+    *result = count;
+
+    free(param);  // free the package, main will free the result
+    return (void *)result;
 }

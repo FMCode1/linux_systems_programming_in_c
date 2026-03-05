@@ -1,7 +1,0 @@
-Script started on 2025-03-19 09:04:02-06:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="149" LINES="10"]
-[?2004h]0;fco483@os1: ~/cs330/Lab8[01;32mfco483@os1[00m:[01;34m~/cs330/Lab8[00m$ exitscript l8.txt[8Pclear./pipesg++ -o pipes pipes.cpp
-[?2004l[?2004h]0;fco483@os1: ~/cs330/Lab8[01;32mfco483@os1[00m:[01;34m~/cs330/Lab8[00m$ ./pipes
-[?2004l[?2004h]0;fco483@os1: ~/cs330/Lab8[01;32mfco483@os1[00m:[01;34m~/cs330/Lab8[00m$ exit
-[?2004lexit
-
-Script done on 2025-03-19 09:04:50-06:00 [COMMAND_EXIT_CODE="0"]

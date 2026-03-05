@@ -1,259 +1,0 @@
-Script started on 2025-02-05 12:06:11-06:00 [TERM="xterm-256color" TTY="/dev/pts/16" COLUMNS="149" LINES="15"]
-[?2004h]0;fco483@os1: ~/cs330/lab3[01;32mfco483@os1[00m:[01;34m~/cs330/lab3[00m$ unzip Lab3.zipwget www.labs.cs.uregina.ca/330/Linux/Lab3.zip[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cunzip Lab3.zip[K[Kmake
-[?2004lg++ -c -ggdb HALmod.cpp
-g++ main.o HALmod.o -o demo
-[?2004h]0;fco483@os1: ~/cs330/lab3[01;32mfco483@os1[00m:[01;34m~/cs330/lab3[00m$ ./demo
-[?2004lHALshell> pwd
-pwd
-HALshell> cd samples
-samples
-cd
-HALshell> quit
-quit
-HALshell> end
-end
-HALshell> exit
-exit
-HALshell> ^C
-[?2004h]0;fco483@os1: ~/cs330/lab3[01;32mfco483@os1[00m:[01;34m~/cs330/lab3[00m$ cd samples
-[?2004lbash: cd: samples: No such file or directory
-[?2004h]0;fco483@os1: ~/cs330/lab3[01;32mfco483@os1[00m:[01;34m~/cs330/lab3[00m$ g++ du[KynamicArrays.cpp
-[?2004l[01m[Kcc1plus:[m[K [01;31m[Kfatal error: [m[KdynamicArrays.cpp: No such file or directory
-compilation terminated.
-[?2004h]0;fco483@os1: ~/cs330/lab3[01;32mfco483@os1[00m:[01;34m~/cs330/lab3[00m$ g++ dynamicArrays.cpp[11Pcd samples[K[K[K[K[K[K[KSamples
-[?2004l[?2004h]0;fco483@os1: ~/cs330/lab3/Samples[01;32mfco483@os1[00m:[01;34m~/cs330/lab3/Samples[00m$ cd Samplesg++ dynamicArrays.cpp
-[?2004l[?2004h]0;fco483@os1: ~/cs330/lab3/Samples[01;32mfco483@os1[00m:[01;34m~/cs330/lab3/Samples[00m$ [7mvalgrind --leak-check=yes ./demo[27m
-[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cvalgrind --leak-check=yes ./demo
-[?2004lvalgrind: ./demo: No such file or directory
-[?2004h]0;fco483@os1: ~/cs330/lab3/Samples[01;32mfco483@os1[00m:[01;34m~/cs330/lab3/Samples[00m$ gdb .a/[K[K/a.out
-[?2004l[35;1mGNU gdb (Ubuntu 15.0.50.20240403-0ubuntu1) 15.0.50.20240403-git[m
-Copyright (C) 2024 Free Software Foundation, Inc.
-License GPLv3+: GNU GPL version 3 or later <[32mhttp://gnu.org/licenses/gpl.html[m>
-This is free software: you are free to change and redistribute it.
-There is NO WARRANTY, to the extent permitted by law.
-Type "show copying" and "show warranty" for details.
-This GDB was configured as "x86_64-linux-gnu".
-Type "show configuration" for configuration details.
-For bug reporting instructions, please see:
-[32m<https://www.gnu.org/software/gdb/bugs/>[m.
-Find the GDB manual and other documentation resources online at:
-    <[32mhttp://www.gnu.org/software/gdb/documentation/[m>.
-
-For help, type "help".
-[?2004h--Type <RET> for more, q to quit, c to continue without paging--
-[?2004lType "apropos word" to search for commands related to "word"...
-Reading symbols from [32m./a.out[m...
-
-This GDB supports auto-downloading debuginfo from the following URLs:
-  <[32mhttps://debuginfod.ubuntu.com[m>
-[?2004hEnable debuginfod for this session? (y or [n]) y
-[?2004lDebuginfod has been enabled.
-To make this setting permanent, add 'set debuginfod enabled on' to .gdbinit.
-Downloading separate debug info for [32m/home/f/fco483/cs330/lab3/Samples/a.out[m
-[###                                                                                                                                              ]                                                                                                                                                     (No debugging symbols found in [32m./a.out[m)
-[?2004h(gdb) break 11
-[?2004lNo symbol table is loaded.  Use the "file" command.
-[?2004h(gdb) run
-[?2004lStarting program: [32m/home/f/fco483/cs330/lab3/Samples/a.out[m 
-Downloading separate debug info for [32msystem-supplied DSO at 0x7ffff7fc3000[m
-[###                                                                                                                                              ]                                                                                                                                                     Downloading separate debug info for [32m/lib/x86_64-linux-gnu/libstdc++.so.6[m
-[###                                                                                                                                              ][                                                                                                                                   ]   0% (6.74 M)[                                                                                                                                   ]   0% (6.74 M)[                                                                                                                                   ]   0% (6.74 M)[                                                                                                                                   ]   0% (6.74 M)[#                                                                                                                                  ]   1% (6.74 M)[#                                                                                                                                  ]   1% (6.74 M)[#                                                                                                                                  ]   1% (6.74 M)[#                                                                                                                                  ]   1% (6.74 M)[#                                                                                                                                  ]   1% (6.74 M)[###                                                                                                                                ]   3% (6.74 M)[###                                                                                                                                ]   3% (6.74 M)[###                                                                                                                                ]   3% (6.74 M)[###                                                                                                                                ]   3% (6.74 M)[###                                                                                                                                ]   3% (6.74 M)[###                                                                                                                                ]   3% (6.74 M)[###                                                                                                                                ]   3% (6.74 M)[####                                                                                                                               ]   3% (6.74 M)[#######                                                                                                                            ]   6% (6.74 M)[#######                                                                                                                            ]   6% (6.74 M)[#######                                                                                                                            ]   6% (6.74 M)[#######                                                                                                                            ]   6% (6.74 M)[#######                                                                                                                            ]   6% (6.74 M)[########                                                                                                                           ]   6% (6.74 M)[########                                                                                                                           ]   6% (6.74 M)[########                                                                                                                           ]   6% (6.74 M)[########                                                                                                                           ]   7% (6.74 M)[#########                                                                                                                          ]   7% (6.74 M)[###############                                                                                                                    ]  12% (6.74 M)[###############                                                                                                                    ]  12% (6.74 M)[###############                                                                                                                    ]  12% (6.74 M)[###############                                                                                                                    ]  12% (6.74 M)[################                                                                                                                   ]  12% (6.74 M)[################                                                                                                                   ]  13% (6.74 M)[################                                                                                                                   ]  13% (6.74 M)[################                                                                                                                   ]  13% (6.74 M)[#################                                                                                                                  ]  13% (6.74 M)[#################                                                                                                                  ]  14% (6.74 M)[######################                                                                                                             ]  17% (6.74 M)[######################                                                                                                             ]  17% (6.74 M)[######################                                                                                                             ]  17% (6.74 M)[###############################                                                                                                    ]  24% (6.74 M)[#################################                                                                                                  ]  26% (6.74 M)[#################################                                                                                                  ]  26% (6.74 M)[###################################                                                                                                ]  27% (6.74 M)[############################################                                                                                       ]  34% (6.74 M)[############################################################                                                                       ]  46% (6.74 M)[####################################################################                                                               ]  52% (6.74 M)[####################################################################                                                               ]  52% (6.74 M)[####################################################################                                                               ]  52% (6.74 M)[####################################################################                                                               ]  52% (6.74 M)[##########################################################################################                                         ]  69% (6.74 M)[#########################################################################################################################          ]  92% (6.74 M)[###################################################################################################################################] 100% (6.74 M)                                                                                                                                                     [Thread debugging using libthread_db enabled]
-Using host libthread_db library "[32m/lib/x86_64-linux-gnu/libthread_db.so.1[m".
-Downloading separate debug info for [32m/lib/x86_64-linux-gnu/libgcc_s.so.1[m
-[###                                                                                                                                              ][#######                                                                                                                          ]   6% (278.27 K)[#################################################################################################################################] 100% (278.27 K)                                                                                                                                                     Please input a word (less than 100 characters): rat
-Please input a second word (less than 100 characters): person
-rat
-person
-330!
-[Inferior 1 (process 3750173) exited normally]
-[?2004h[?2004l[?2004h(gdb) print words
-[?2004lNo symbol "words" in current context.
-[?2004h(gdb) run
-[?2004lStarting program: [32m/home/f/fco483/cs330/lab3/Samples/a.out[m 
-[Thread debugging using libthread_db enabled]
-Using host libthread_db library "[32m/lib/x86_64-linux-gnu/libthread_db.so.1[m".
-Please input a word (less than 100 characters): wirds    ords
-Please input a second word (less than 100 characters): input
-words
-input
-330!
-[Inferior 1 (process 3750689) exited normally]
-[?2004h[?2004l[?2004h(gdb) runprint words
-[?2004lNo symbol "words" in current context.
-[?2004h(gdb) n
-[?2004lThe program is not being run.
-[?2004h(gdb) run
-[?2004lStarting program: [32m/home/f/fco483/cs330/lab3/Samples/a.out[m 
-[Thread debugging using libthread_db enabled]
-Using host libthread_db library "[32m/lib/x86_64-linux-gnu/libthread_db.so.1[m".
-Please input a word (less than 100 characters): not
-Please input a second word (less than 100 characters): fog
-not
-fog
-330!
-[Inferior 1 (process 3751716) exited normally]
-[?2004h[?2004l[?2004h(gdb) run[2Pnrun[2Pnprint words[C[C[C[C[C[Crun[Kprint words[C[C[C[C[C[Crun[Kbreak 11
-[?2004lNo line 11 in the current file.
-[?2004hMake breakpoint pending on future shared library load? (y or [n]) y
-[?2004lBreakpoint 1 (11) pending.
-[?2004h(gdb) run
-[?2004lStarting program: [32m/home/f/fco483/cs330/lab3/Samples/a.out[m 
-Download failed: Invalid argument.  Continuing without source file [32m./stdio-common/./stdio-common/errname.c[m.
-[Thread debugging using libthread_db enabled]
-Using host libthread_db library "[32m/lib/x86_64-linux-gnu/libthread_db.so.1[m".
-Download failed: Invalid argument.  Continuing without source file [32m./stdio-common/./stdio-common/errname.c[m.
-Please input a word (less than 100 characters): dog
-Please input a second word (less than 100 characters): cat
-dog
-cat
-330!
-[Inferior 1 (process 3752709) exited normally]
-[?2004h[?2004l[?2004h(gdb) run
-[?2004lStarting program: [32m/home/f/fco483/cs330/lab3/Samples/a.out[m 
-Download failed: Invalid argument.  Continuing without source file [32m./stdio-common/./stdio-common/errname.c[m.
-[Thread debugging using libthread_db enabled]
-Using host libthread_db library "[32m/lib/x86_64-linux-gnu/libthread_db.so.1[m".
-Download failed: Invalid argument.  Continuing without source file [32m./stdio-common/./stdio-common/errname.c[m.
-Please input a word (less than 100 characters): pot
-Please input a second word (less than 100 characters): print
-pot
-print
-330!
-[Inferior 1 (process 3753203) exited normally]
-[?2004h[?2004l[?2004h(gdb) print words
-[?2004lNo symbol "words" in current context.
-[?2004h(gdb) n
-[?2004lThe program is not being run.
-[?2004h(gdb) display [K tempWord
-[?2004lNo symbol "tempWord" in current context.
-[?2004h(gdb) display tempWord[C[C[C[C[C[Cn[Kn
-[?2004lUndefined command: "nn".  Try "help".
-[?2004h(gdb) n
-[?2004lThe program is not being run.
-[?2004h(gdb) n
-[?2004lThe program is not being run.
-[?2004h(gdb) print endword
-[?2004lNo symbol "endword" in current context.
-[?2004h(gdb) print endword[C[C[C[C[C[Cn[Kprint endword[C[C[C[C[C[C[K
-[?2004lNo symbol "endword" in current context.
-[?2004h(gdb) gdb .a[K/a,out
-[?2004lUndefined command: "gdb".  Try "help".
-[?2004h(gdb) gdb ./a,out[C[C[C[C[C[Cprint endword[C[C[C[C[C[Cn[Kndisplay tempWord[C[C[C[C[C[Cn[Kprint words[C[C[C[C[C[Crun[Kbreak 11[C[C[C[C[C[C[5Prunbreak 11
-[?2004lNote: breakpoint 1 also set at pc [34m0x7ffff7fef960[m.
-Note: breakpoint 1 also set at pc [34m0x7ffff7883310[m.
-Breakpoint 2 at [34m0x7ffff7883310[m: ./stdio-common/errname.c:11. (2 locations)
-[?2004h(gdb) break 11[C[C[C[C[C[Cgdb ./a,out[C[C[C[C[C[Cprint endword[C[C[C[C[C[Cn[Kprint endword[C[C[C[C[C[C[2Pgdb ./a,out[C[C[C[C[C[C[3Pbreak 11[C[C[C[C[C[C[Krun
-[?2004lStarting program: [32m/home/f/fco483/cs330/lab3/Samples/a.out[m 
-Download failed: Invalid argument.  Continuing without source file [32m./stdio-common/./stdio-common/errname.c[m.
-[Thread debugging using libthread_db enabled]
-Using host libthread_db library "[32m/lib/x86_64-linux-gnu/libthread_db.so.1[m".
-Download failed: Invalid argument.  Continuing without source file [32m./stdio-common/./stdio-common/errname.c[m.
-Please input a word (less than 100 characters): yu ou
-Please input a second word (less than 100 characters): mop
-you
-mop
-330!
-[Inferior 1 (process 3756446) exited normally]
-[?2004h[?2004l[?2004h(gdb) quit
-[?2004l[?2004h]0;fco483@os1: ~/cs330/lab3/Samples[01;32mfco483@os1[00m:[01;34m~/cs330/lab3/Samples[00m$ g++ dynArrays.cpp -g
-[?2004l[01m[Kcc1plus:[m[K [01;31m[Kfatal error: [m[KdynArrays.cpp: No such file or directory
-compilation terminated.
-[?2004h]0;fco483@os1: ~/cs330/lab3/Samples[01;32mfco483@os1[00m:[01;34m~/cs330/lab3/Samples[00m$ g++ dynArrays.cpp -g[1@a[1@m[1@i[1@c
-[?2004l[?2004h]0;fco483@os1: ~/cs330/lab3/Samples[01;32mfco483@os1[00m:[01;34m~/cs330/lab3/Samples[00m$ ./a,out
-[?2004lbash: ./a,out: No such file or directory
-[?2004h]0;fco483@os1: ~/cs330/lab3/Samples[01;32mfco483@os1[00m:[01;34m~/cs330/lab3/Samples[00m$ ./a,out[1Pout.out[1Pout[1Pout[1Pout[1Pout[C[Cg++ dynamicArrays.cpp -g
-[?2004l[?2004h]0;fco483@os1: ~/cs330/lab3/Samples[01;32mfco483@os1[00m:[01;34m~/cs330/lab3/Samples[00m$ ./a.out
-[?2004lPlease input a word (less than 100 characters): for
-Please input a second word (less than 100 characters): you
-for
-you
-330!
-[?2004h]0;fco483@os1: ~/cs330/lab3/Samples[01;32mfco483@os1[00m:[01;34m~/cs330/lab3/Samples[00m$ [7mvalgrind --leak-check=yes ./demo[27m
-[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cvalgrind --leak-check=yes ./demo o
-[?2004lvalgrind: ./demo: No such file or directory
-[?2004h]0;fco483@os1: ~/cs330/lab3/Samples[01;32mfco483@os1[00m:[01;34m~/cs330/lab3/Samples[00m$ cd ..
-[?2004l[?2004h]0;fco483@os1: ~/cs330/lab3[01;32mfco483@os1[00m:[01;34m~/cs330/lab3[00m$ cd ..valgrind --leak-check=yes ./demo
-[?2004l==3759675== Memcheck, a memory error detector
-==3759675== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
-==3759675== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
-==3759675== Command: ./demo
-==3759675== 
-HALshell> break     ^C==3759675== 
-==3759675== Process terminating with default action of signal 2 (SIGINT)
-==3759675==    at 0x4C28A61: read (read.c:26)
-==3759675==    by 0x4B9F794: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:517)
-==3759675==    by 0x4BA25C1: _IO_default_uflow (genops.c:362)
-==3759675==    by 0x49891C8: __gnu_cxx::stdio_sync_filebuf<char, std::char_traits<char> >::underflow() (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
-==3759675==    by 0x4937429: std::basic_istream<char, std::char_traits<char> >& std::getline<char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
-==3759675==    by 0x10A5B2: getCommand(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*) (HALmod.cpp:14)
-==3759675==    by 0x10A43E: main (main.cpp:17)
-==3759675== 
-==3759675== HEAP SUMMARY:
-==3759675==     in use at exit: 75,776 bytes in 3 blocks
-==3759675==   total heap usage: 3 allocs, 0 frees, 75,776 bytes allocated
-==3759675== 
-==3759675== LEAK SUMMARY:
-==3759675==    definitely lost: 0 bytes in 0 blocks
-==3759675==    indirectly lost: 0 bytes in 0 blocks
-==3759675==      possibly lost: 0 bytes in 0 blocks
-==3759675==    still reachable: 75,776 bytes in 3 blocks
-==3759675==         suppressed: 0 bytes in 0 blocks
-==3759675== Reachable blocks (those to which a pointer was found) are not shown.
-==3759675== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==3759675== 
-==3759675== For lists of detected and suppressed errors, rerun with: -s
-==3759675== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-
-[?2004h]0;fco483@os1: ~/cs330/lab3[01;32mfco483@os1[00m:[01;34m~/cs330/lab3[00m$ g++ st[K[K[K[K[K[Kcd San[Kmples
-[?2004l[?2004h]0;fco483@os1: ~/cs330/lab3/Samples[01;32mfco483@os1[00m:[01;34m~/cs330/lab3/Samples[00m$ g++ strt[KTok.cpp -g
-[?2004l[?2004h]0;fco483@os1: ~/cs330/lab3/Samples[01;32mfco483@os1[00m:[01;34m~/cs330/lab3/Samples[00m$ gdb a.out
-[?2004l[35;1mGNU gdb (Ubuntu 15.0.50.20240403-0ubuntu1) 15.0.50.20240403-git[m
-Copyright (C) 2024 Free Software Foundation, Inc.
-License GPLv3+: GNU GPL version 3 or later <[32mhttp://gnu.org/licenses/gpl.html[m>
-This is free software: you are free to change and redistribute it.
-There is NO WARRANTY, to the extent permitted by law.
-Type "show copying" and "show warranty" for details.
-This GDB was configured as "x86_64-linux-gnu".
-Type "show configuration" for configuration details.
-For bug reporting instructions, please see:
-[32m<https://www.gnu.org/software/gdb/bugs/>[m.
-Find the GDB manual and other documentation resources online at:
-    <[32mhttp://www.gnu.org/software/gdb/documentation/[m>.
-
-For help, type "help".
-[?2004h--Type <RET> for more, q to quit, c to continue without paging--break 14
-[?2004lType "apropos word" to search for commands related to "word"...
-Reading symbols from [32ma.out[m...
-[?2004h(gdb) run
-[?2004lStarting program: [32m/home/f/fco483/cs330/lab3/Samples/a.out[m 
-
-This GDB supports auto-downloading debuginfo from the following URLs:
-  <[32mhttps://debuginfod.ubuntu.com[m>
-[?2004hEnable debuginfod for this session? (y or [n]) display cstr1
-[?2004lPlease answer y or [n].
-[?2004hEnable debuginfod for this session? (y or [n]) y
-[?2004lDebuginfod has been enabled.
-To make this setting permanent, add 'set debuginfod enabled on' to .gdbinit.
-Downloading separate debug info for [32msystem-supplied DSO at 0x7ffff7fc3000[m
-[###                                                                                                                                              ]                                                                                                                                                     [Thread debugging using libthread_db enabled]
-Using host libthread_db library "[32m/lib/x86_64-linux-gnu/libthread_db.so.1[m".
-cstr1 before being tokenized: This is a sample string. Is it working?
-
-This
-is
-a
-sample
-string
-Is
-it
-working
-
-cstr1 after being tokenized: This
-[Inferior 1 (process 3760803) exited normally]
-[?2004h[?2004l[?2004h(gdb) run[Kdisplay cstr1
-[?2004lNo symbol "cstr1" in current context.
-[?2004h(gdb) quit
-[?2004l[?2004h]0;fco483@os1: ~/cs330/lab3/Samples[01;32mfco483@os1[00m:[01;34m~/cs330/lab3/Samples[00m$ xit[K[K[Kexit
-[?2004lexit
-
-Script done on 2025-02-05 12:25:34-06:00 [COMMAND_EXIT_CODE="0"]

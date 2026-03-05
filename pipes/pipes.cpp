@@ -1,8 +1,10 @@
-/* Please write your code for the lab exercise in this file */
-
-// grep -inw 'sed' colorFile.txt > sed.txt
-
-// Using the system calls from this lab, your goal is to create a program that executes the following command which will count the number of occurrences of "pipe" in the file and write the results to newFile.txt.
+/*
+Shell Scripting, Signals, and Pipes Lab
+Unix commands alone are powerful, but when you combine them together,
+you can accomplish complex tasks easily.
+One way you can combine Unix commands is through using pipes and filters on the command line.
+This lab covers shell scripting, signals, process control, and pipes.
+*/
 
 // compile and run with :
 // g++ pipes.cpp -o pipes
@@ -72,14 +74,14 @@ int main() {
         if (dup2(output_fd, 1) == -1) {
             perror("Error with dup2 (parent)");
             exit(7);
-        }        char *myargv[] = {(char *)"wc", (char *)"-w", NULL};
-
+        }
+        
+        char *myargv[] = {(char *)"wc", (char *)"-w", NULL};
 
         // Close the file descriptor as it's no longer needed after redirection
         close(output_fd);
 
         // Execute the "wc -w" command
-        char *myargv[] = {(char *)"wc", (char *)"-w", NULL};
         if (execvp(myargv[0], myargv) == -1) {
             perror("Error with execvp (wc)");
             exit(8);

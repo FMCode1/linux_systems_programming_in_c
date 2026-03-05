@@ -1,19 +1,0 @@
-Script started on 2025-04-02 12:44:54-06:00 [TERM="xterm-256color" TTY="/dev/pts/24" COLUMNS="159" LINES="13"]
-[?2004h]0;fco483@os1: ~/cs330/lab11[01;32mfco483@os1[00m:[01;34m~/cs330/lab11[00m$ exit./a.outg++ signal_ex.cpp[10P./a.outg++ signal_ex.cpp[10P./a.out[3Pexit[K./backup.sh
-[?2004lUsage: ./backup.sh dirName
-[?2004h]0;fco483@os1: ~/cs330/lab11[01;32mfco483@os1[00m:[01;34m~/cs330/lab11[00m$ ./backup.sh hello there
-[?2004lUsage: ./backup.sh dirName
-[?2004h]0;fco483@os1: ~/cs330/lab11[01;32mfco483@os1[00m:[01;34m~/cs330/lab11[00m$ ./backup.sh NewDir
-[?2004lcp: cannot stat '*.c': No such file or directory
-cp: cannot stat '*.h': No such file or directory
-[?2004h]0;fco483@os1: ~/cs330/lab11[01;32mfco483@os1[00m:[01;34m~/cs330/lab11[00m$ touch a.c b.c a.h
-[?2004l[?2004h]0;fco483@os1: ~/cs330/lab11[01;32mfco483@os1[00m:[01;34m~/cs330/lab11[00m$ touch a.c b.c a.h./backup.sh NewDir
-[?2004lDirectory NewDir already exists...Please use a different name
-[?2004h]0;fco483@os1: ~/cs330/lab11[01;32mfco483@os1[00m:[01;34m~/cs330/lab11[00m$ ./backup.sh NewDir[1Ptouch a.c b.c a.h./backup.sh NewDir[1Ptouch a.c b.c a.h./backup.sh NewDir[K./backup.sh NewDir2
-[?2004lFiles copied successfully to NewDir2
-[?2004h]0;fco483@os1: ~/cs330/lab11[01;32mfco483@os1[00m:[01;34m~/cs330/lab11[00m$ ls NewDir2
-[?2004la.c  a.h  b.c
-[?2004h]0;fco483@os1: ~/cs330/lab11[01;32mfco483@os1[00m:[01;34m~/cs330/lab11[00m$ exit
-[?2004lexit
-
-Script done on 2025-04-02 12:46:27-06:00 [COMMAND_EXIT_CODE="0"]

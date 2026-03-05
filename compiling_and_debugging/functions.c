@@ -3,16 +3,14 @@
 #include <unistd.h>
 
 /* FUNCTION: initialize
- * This function should initialize the array
- * to random values between 1 and 500
+ * This function should initialize the array to random values between 1 and 500
  *
  * The arguments are:
  *     array: pointer to an array of integer values
  *     length: size of array
  *
  * It returns:
- *     0: on success
- *     non-zero: on an error
+ *     0: on success, non-zero: on an error
  */
 int initialize(int *array, int length)
 {
@@ -28,17 +26,14 @@ int initialize(int *array, int length)
 }
 
 /* FUNCTION: findMax
- * This function should find the largest element in the array and
- * return it through the argument mzx.
- *
+ * This function should find the largest element in the array and return it through the argument max.
  * The arguments are:
  *     array: pointer to an array of integer values
  *     length: size of array
  *     max: set to the largest value in array
  *
  * It returns:
- *     0: on success
- *     non-zero: on an error
+ *     0: on success, non-zero: on an error
  */
 int findMax(int *array, int length, int *max)
 {
