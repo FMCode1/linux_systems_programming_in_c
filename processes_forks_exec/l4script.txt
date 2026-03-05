@@ -1,0 +1,34 @@
+Script started on 2025-02-12 12:08:13-06:00 [TERM="xterm-256color" TTY="/dev/pts/70" COLUMNS="149" LINES="10"]
+[?2004h]0;fco483@os1: ~/cs330/Lab4[01;32mfco483@os1[00m:[01;34m~/cs330/Lab4[00m$ gdb demo[4Pmake clean[Kgdb demo[Kmka[K[Kake clean
+[?2004lrm -f *.o demo part2
+[?2004h]0;fco483@os1: ~/cs330/Lab4[01;32mfco483@os1[00m:[01;34m~/cs330/Lab4[00m$ make clean[2Pgdb demo[4Pmake
+[?2004lg++ -c -ggdb main.cpp
+g++ -c -ggdb HALmod.cpp
+g++ main.o HALmod.o -o demo
+g++ part2.cpp -ggdb -o part2
+[?2004h]0;fco483@os1: ~/cs330/Lab4[01;32mfco483@os1[00m:[01;34m~/cs330/Lab4[00m$ ./demo
+[?2004lHALshell> pwd
+/home/f/fco483/cs330/Lab4
+Child exited with status: 0
+HALshell> ls
+HALmod.cpp  HALmod.h  HALmod.o	Lab4.zip  Makefile  NOTES.TXT  Samples	demo  l4script.txt  main.bak  main.cpp	main.o	output	part2  part2.cpp
+Child exited with status: 0
+HALshell> cp main.cpp main.bak
+Child exited with status: 0
+HALshell> ls
+HALmod.cpp  HALmod.h  HALmod.o	Lab4.zip  Makefile  NOTES.TXT  Samples	demo  l4script.txt  main.bak  main.cpp	main.o	output	part2  part2.cpp
+Child exited with status: 0
+HALshell> exit
+execvp failed: No such file or directory
+Child exited with status: 1
+HALshell> lo
+
+HALshell: terminating ...
+[?2004h]0;fco483@os1: ~/cs330/Lab4[01;32mfco483@os1[00m:[01;34m~/cs330/Lab4[00m$ quit
+[?2004lCommand 'quit' not found, but can be installed with:
+snap install quit
+Please ask your administrator.
+[?2004h]0;fco483@os1: ~/cs330/Lab4[01;32mfco483@os1[00m:[01;34m~/cs330/Lab4[00m$ exit
+[?2004lexit
+
+Script done on 2025-02-12 12:10:43-06:00 [COMMAND_EXIT_CODE="127"]

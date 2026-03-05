@@ -1,0 +1,19 @@
+Script started on 2025-02-26 12:22:55-06:00 [TERM="xterm-256color" TTY="/dev/pts/37" COLUMNS="149" LINES="10"]
+[?2004h]0;fco483@os1: ~/cs330/Lab5[01;32mfco483@os1[00m:[01;34m~/cs330/Lab5[00m$ ./[K[Kmake
+[?2004lgcc -c -ggdb main.c
+[01m[Kmain.c:[m[K In function ‘[01m[Kmain[m[K’:
+[01m[Kmain.c:54:36:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ before ‘[01m[KonePack[m[K’
+   54 |     onePack->start = 1 * increments[01;31m[K [m[K// always increment away from previous
+      |                                    [01;31m[K^[m[K
+      |                                    [32m[K;[m[K
+   55 |     [32m[KonePack[m[K->end = (i == numThreads - 1) ? size : (i + 1) * increments; // increment more than start, for the last thread, the end index will be the size of the array
+      |     [32m[K~~~~~~~[m[K                         
+[01m[Kmain.c:62:45:[m[K [01;31m[Kerror: [m[K‘[01m[KthreadFunction[m[K’ undeclared (first use in this function)
+   62 |     if (pthread_create(&threadIds[i], NULL, [01;31m[KthreadFunction[m[K, (void *)onePack) != 0)
+      |                                             [01;31m[K^~~~~~~~~~~~~~[m[K
+[01m[Kmain.c:62:45:[m[K [01;36m[Knote: [m[Keach undeclared identifier is reported only once for each function it appears in
+make: *** [makefile:7: main.o] Error 1
+[?2004h]0;fco483@os1: ~/cs330/Lab5[01;32mfco483@os1[00m:[01;34m~/cs330/Lab5[00m$ exit
+[?2004lexit
+
+Script done on 2025-02-26 12:23:22-06:00 [COMMAND_EXIT_CODE="2"]

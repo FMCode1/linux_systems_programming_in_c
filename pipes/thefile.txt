@@ -1,0 +1,2 @@
+2:testing the use of grep and sed.
+3:Sed will modify the spelling of color.

@@ -1,0 +1,15 @@
+Script started on 2025-04-02 12:21:37-06:00 [TERM="xterm-256color" TTY="/dev/pts/24" COLUMNS="139" LINES="13"]
+[?2004h]0;fco483@os1: ~/cs330/lab10[01;32mfco483@os1[00m:[01;34m~/cs330/lab10[00m$ mysql -p fco483[5Pssh webdevmysql -p fco483[Kg++ signal_ex.cpp
+[?2004l[?2004h]0;fco483@os1: ~/cs330/lab10[01;32mfco483@os1[00m:[01;34m~/cs330/lab10[00m$ g++[K[K[K./a.out
+[?2004lParent waiting!!
+Child waiting!!
+Parent is sending a signal
+Parent waiting!!
+Signal 28 received.
+Child received signal
+Signal 17 received.
+Parent received signal
+[?2004h]0;fco483@os1: ~/cs330/lab10[01;32mfco483@os1[00m:[01;34m~/cs330/lab10[00m$ exit
+[?2004lexit
+
+Script done on 2025-04-02 12:22:35-06:00 [COMMAND_EXIT_CODE="0"]

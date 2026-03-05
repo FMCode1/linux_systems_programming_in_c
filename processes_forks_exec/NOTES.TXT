@@ -1,0 +1,17 @@
+cmp to comare files in terminal
+cmp childParent.cpp childparent2.cpp
+echo $ to know if they're different returns number 1 or returns 0 if same
+The max value we can return is  255 since we're using octal. 
+
+Homework:
+
+Need to start a program in the child
+
+in datex.cpp
+
+echo $PATH tells you what path to look in to see where the program is
+which date - shows the exact date
+
+for the lab we will be using execv not exec lab
+
+execv first arg is "/bin/date", 
