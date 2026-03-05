@@ -1,0 +1,48 @@
+Script started on 2026-03-05 14:43:18+00:00 [TERM="xterm-256color" TTY="/dev/pts/2" COLUMNS="122" LINES="15"]
+[?2004h[0;32m@FMCode1 [0m➜ [1;34m/workspaces/linux_systems_programming_in_c/processes_forks_exec [0;36m([1;31mmain[0;36m) [0m$ exitmake clean[1P./prog1_4memory_segmentsswap[K[2Ppmmakeexitmake clean[6Pexitmake
+[?2004lg++ -c -ggdb main.cpp
+g++ -c -ggdb HALmod.cpp
+g++ main.o HALmod.o -o demo
+g++ fork_demo.cpp -ggdb -o fork_demo
+[?2004h[0;32m@FMCode1 [0m➜ [1;34m/workspaces/linux_systems_programming_in_c/processes_forks_exec [0;36m([1;31mmain[0;36m) [0m$ ./demo
+[?2004lHALshell> ls
+HALmod.cpp  HALmod.h  HALmod.o	Makefile  demo	fork_demo  fork_demo.cpp  main.cpp  main.o  sample_run.txt
+Child exited with status: 0
+HALshell> ls -l
+total 348
+-rw-rw-rw- 1 codespace codespace   5110 Mar  5 10:35 HALmod.cpp
+-rw-rw-rw- 1 codespace codespace   1723 Mar  5 10:34 HALmod.h
+-rw-rw-rw- 1 codespace codespace 109464 Mar  5 14:43 HALmod.o
+-rw-rw-rw- 1 codespace codespace    683 Mar  5 10:39 Makefile
+-rwxrwxrwx 1 codespace codespace 109072 Mar  5 14:43 demo
+-rwxrwxrwx 1 codespace codespace  24360 Mar  5 14:43 fork_demo
+-rw-rw-rw- 1 codespace codespace   1756 Mar  5 10:40 fork_demo.cpp
+-rw-rw-rw- 1 codespace codespace    923 Mar  5 10:35 main.cpp
+-rw-rw-rw- 1 codespace codespace  83992 Mar  5 14:43 main.o
+-rw-rw-rw- 1 codespace codespace      0 Mar  5 14:43 sample_run.txt
+Child exited with status: 0
+HALshell> fork_demo
+execvp failed: No such file or directory
+HALshell> ./fork_demo
+PARENT0
+CHILD0
+PARENT0
+CHILD1
+PARENT0
+CHILD2
+PARENT0
+CHILD3
+PARENT0
+Child exited with status: 0
+HALshell> CHILD4
+lo
+
+HALshell: terminating ...
+Child exited with status: 0
+HALshell> lo
+
+HALshell: terminating ...
+[?2004h[0;32m@FMCode1 [0m➜ [1;34m/workspaces/linux_systems_programming_in_c/processes_forks_exec [0;36m([1;31mmain[0;36m) [0m$ exit
+[?2004lexit
+
+Script done on 2026-03-05 14:44:26+00:00 [COMMAND_EXIT_CODE="0"]

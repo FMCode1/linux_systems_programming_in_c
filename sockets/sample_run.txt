@@ -1,0 +1,18 @@
+Script started on 2026-03-05 14:59:51+00:00 [TERM="xterm-256color" TTY="/dev/pts/2" COLUMNS="122" LINES="16"]
+[?2004h[0;32m@FMCode1 [0m➜ [1;34m/workspaces/linux_systems_programming_in_c/sockets [0;36m([1;31mmain[0;36m) [0m$ exitclear[1Pexit./servergcc -o client client.cserver server.c
+[?2004l[?2004h[0;32m@FMCode1 [0m➜ [1;34m/workspaces/linux_systems_programming_in_c/sockets [0;36m([1;31mmain[0;36m) [0m$ gcc -o server server.cexit[Kclear[1Pexitclear[1Pexit./servergcc -o client client.c[14P./server[4Pexit./server
+[?2004lThe hostname is: codespaces-642a6b
+The first hostaddress is: 127.0.0.1
+Socket assigned: 59557
+Connection established
+Client sent command: 1
+Connection established
+Client sent command: 2
+Connection established
+Client sent command: 3
+kill 1234
+^C
+[?2004h[0;32m@FMCode1 [1;31m➜ [1;34m/workspaces/linux_systems_programming_in_c/sockets [0;36m([1;31mmain[0;36m) [0m$ ./servergcc -o server server.cexit[Kclear[1Pexit
+[?2004lexit
+
+Script done on 2026-03-05 15:04:19+00:00 [COMMAND_EXIT_CODE="130"]

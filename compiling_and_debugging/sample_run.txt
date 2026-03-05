@@ -1,0 +1,23 @@
+Script started on 2026-03-05 14:15:35+00:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="122" LINES="19"]
+[?2004h[0;32m@FMCode1 [0m➜ [1;34m/workspaces/linux_systems_programming_in_c/compiling_and_debugging [0;36m([1;31mmain[0;36m) [0m$ exit[Kmake
+[?2004lgcc -c -ggdb main.c
+gcc -c -ggdb functions.c
+gcc main.o functions.o -o demo
+[?2004h[0;32m@FMCode1 [0m➜ [1;34m/workspaces/linux_systems_programming_in_c/compiling_and_debugging [0;36m([1;31mmain[0;36m) [0m$ ./demo
+[?2004lHow big is the array? 4
+The max value in the array is: 381
+[?2004h[0;32m@FMCode1 [0m➜ [1;34m/workspaces/linux_systems_programming_in_c/compiling_and_debugging [0;36m([1;31mmain[0;36m) [0m$ ./demo
+[?2004lHow big is the array? 5
+The max value in the array is: 270
+[?2004h[0;32m@FMCode1 [0m➜ [1;34m/workspaces/linux_systems_programming_in_c/compiling_and_debugging [0;36m([1;31mmain[0;36m) [0m$ ./demo
+[?2004lHow big is the array? 122  22
+The max value in the array is: 494
+[?2004h[0;32m@FMCode1 [0m➜ [1;34m/workspaces/linux_systems_programming_in_c/compiling_and_debugging [0;36m([1;31mmain[0;36m) [0m$ ./demo
+[?2004lHow big is the array? 10000
+The max value in the array is: 500
+[?2004h[0;32m@FMCode1 [0m➜ [1;34m/workspaces/linux_systems_programming_in_c/compiling_and_debugging [0;36m([1;31mmain[0;36m) [0m$ ./demo[Kmqk3[K[K[K[Kmake clean
+[?2004lrm -f *.o demo
+[?2004h[0;32m@FMCode1 [0m➜ [1;34m/workspaces/linux_systems_programming_in_c/compiling_and_debugging [0;36m([1;31mmain[0;36m) [0m$ exitt[K
+[?2004lexit
+
+Script done on 2026-03-05 14:16:32+00:00 [COMMAND_EXIT_CODE="0"]

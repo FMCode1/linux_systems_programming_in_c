@@ -1,0 +1,18 @@
+Script started on 2026-03-05 14:51:50+00:00 [TERM="xterm-256color" TTY="/dev/pts/2" COLUMNS="122" LINES="15"]
+[?2004h[0;32m@FMCode1 [0m➜ [1;34m/workspaces/linux_systems_programming_in_c/shell_scripting [0;36m([1;31mmain[0;36m) [0m$ exit[1Ppwf\d[K[Kd[K[Kd
+[?2004l/workspaces/linux_systems_programming_in_c/shell_scripting
+[?2004h[0;32m@FMCode1 [0m➜ [1;34m/workspaces/linux_systems_programming_in_c/shell_scripting [0;36m([1;31mmain[0;36m) [0m$ ls
+[?2004lREADME.md  a.c  a.h  b.c  [0m[01;32mbackup.sh[0m  sample_run.txt  [34;42mss_clone[0m  [34;42mss_clone2[0m
+[?2004h[0;32m@FMCode1 [0m➜ [1;34m/workspaces/linux_systems_programming_in_c/shell_scripting [0;36m([1;31mmain[0;36m) [0m$ rm 0[K-rf ss)[K_clone2
+[?2004l[?2004h[0;32m@FMCode1 [0m➜ [1;34m/workspaces/linux_systems_programming_in_c/shell_scripting [0;36m([1;31mmain[0;36m) [0m$ clone[K[K[K[K[K/[K./backup.sh
+[?2004lto check 
+Must be exactly 1 argument in ./backup.sh
+[?2004h[0;32m@FMCode1 [0m➜ [1;34m/workspaces/linux_systems_programming_in_c/shell_scripting [0;36m([1;31mmain[0;36m) [0m$ ./backup.sh t[Kss)[K_clone2
+[?2004lto check ss_clone2
+[?2004h[0;32m@FMCode1 [0m➜ [1;34m/workspaces/linux_systems_programming_in_c/shell_scripting [0;36m([1;31mmain[0;36m) [0m$ cd ss_clone2
+[?2004l[?2004h[0;32m@FMCode1 [0m➜ [1;34m/workspaces/linux_systems_programming_in_c/shell_scripting/ss_clone2 [0;36m([1;31mmain[0;36m) [0m$ ls
+[?2004la.c  a.h  b.c
+[?2004h[0;32m@FMCode1 [0m➜ [1;34m/workspaces/linux_systems_programming_in_c/shell_scripting/ss_clone2 [0;36m([1;31mmain[0;36m) [0m$ exit
+[?2004lexit
+
+Script done on 2026-03-05 14:53:14+00:00 [COMMAND_EXIT_CODE="0"]

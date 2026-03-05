@@ -1,0 +1,18 @@
+Script started on 2026-03-05 14:53:37+00:00 [TERM="xterm-256color" TTY="/dev/pts/2" COLUMNS="122" LINES="26"]
+[?2004h[0;32m@FMCode1 [0m➜ [1;34m/workspaces/linux_systems_programming_in_c/signals [0;36m([1;31mmain[0;36m) [0m$ signa[K[K[K[K[K[K[0;32m@FMCode1 [0m➜ [1;34m/workspaces/linux_systems_programming_in_c/signals [0;36m([1;31mmain[0;36m) [0m$ [K[0;32m@FMCode1 [0m➜ [1;34m/workspaces/linux_systems_programming_in_c/signals [0;36m([1;31mmain[0;36m) [0m$ [K[0;32m@FMCode1 [0m➜ [1;34m/workspaces/linux_systems_programming_in_c/signals [0;36m([1;31mmain[0;36m) [0m$ [K[0;32m@FMCode1 [0m➜ [1;34m/workspaces/linux_systems_programming_in_c/signals [0;36m([1;31mmain[0;36m) [0m$ [K[0;32m@FMCode1 [0m➜ [1;34m/workspaces/linux_systems_programming_in_c/signals [0;36m([1;31mmain[0;36m) [0m$ [K[0;32m@FMCode1 [0m➜ [1;34m/workspaces/linux_systems_programming_in_c/signals [0;36m([1;31mmain[0;36m) [0m$ [7mg++ -o signal_ex signal_ex.cpp[27mg++ -o signal_ex signal_ex.cpp
+[?2004l[?2004h[0;32m@FMCode1 [0m➜ [1;34m/workspaces/linux_systems_programming_in_c/signals [0;36m([1;31mmain[0;36m) [0m$ ./signal)[K_ex
+[?2004lParent waiting!!
+Child waiting!!
+Parent is sending SIGWINCH to child
+Child received signal 28
+Parent received SIGCHLD 17
+[?2004h[0;32m@FMCode1 [0m➜ [1;34m/workspaces/linux_systems_programming_in_c/signals [0;36m([1;31mmain[0;36m) [0m$ [K[0;32m@FMCode1 [0m➜ [1;34m/workspaces/linux_systems_programming_in_c/signals [0;36m([1;31mmain[0;36m) [0m$ [K[0;32m@FMCode1 [0m➜ [1;34m/workspaces/linux_systems_programming_in_c/signals [0;36m([1;31mmain[0;36m) [0m$ [K[0;32m@FMCode1 [0m➜ [1;34m/workspaces/linux_systems_programming_in_c/signals [0;36m([1;31mmain[0;36m) [0m$ ./signal_ex
+[?2004lParent waiting!!
+Child waiting!!
+Parent is sending SIGWINCH to child
+Child received signal 28
+Parent received SIGCHLD 17
+[?2004h[0;32m@FMCode1 [0m➜ [1;34m/workspaces/linux_systems_programming_in_c/signals [0;36m([1;31mmain[0;36m) [0m$ exit
+[?2004lexit
+
+Script done on 2026-03-05 14:55:10+00:00 [COMMAND_EXIT_CODE="0"]
